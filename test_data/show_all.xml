@@ -9,13 +9,13 @@
                     </Repeat>
                 </ReactiveFallback>
             </Fallback>
-            <SequenceStar name="DoSequenceStar">
+            <SequenceWithMemory name="DoSequenceWithMemory">
                 <RetryUntilSuccessful num_attempts="1">
                     <BlackboardCheckString value_A="" return_on_mismatch="" value_B="">
                         <AlwaysSuccess/>
                     </BlackboardCheckString>
                 </RetryUntilSuccessful>
-            </SequenceStar>
+            </SequenceWithMemory>
             <Inverter>
                 <ForceFailure>
                     <ForceSuccess>

@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.2)
+cmake_minimum_required(VERSION 3.10.2)
 
 # Update the policy setting to avoid an error when loading the ament_cmake package
 # at the current cmake version level
@@ -11,12 +11,8 @@ project(groot)
 find_package(Qt5 COMPONENTS  Core Widgets Gui OpenGL Xml Svg)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH}  "${CMAKE_CURRENT_LIST_DIR}/cmake")
 
-if(NOT CMAKE_VERSION VERSION_LESS 3.1)
-    set(CMAKE_CXX_STANDARD 11)
-    set(CMAKE_CXX_STANDARD_REQUIRED ON)
-else()
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
-endif()
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 #############################################################
 find_package(ament_cmake QUIET)
@@ -24,10 +20,10 @@ find_package(catkin QUIET)
 
 if(ament_cmake_FOUND)
   find_package(ament_index_cpp REQUIRED)
-  find_package(behaviortree_cpp_v3 REQUIRED)
+  find_package(behaviortree_cpp REQUIRED)
 
   set(dependencies
-    behaviortree_cpp_v3
+    behaviortree_cpp
   )
 
   message(STATUS "---------------------")
@@ -38,7 +34,7 @@ elseif(catkin_FOUND OR CATKIN_DEVEL_PREFIX OR CATKIN_BUILD_BINARY_PACKAGE )
   set(catkin_FOUND 1)
   # add_definitions( -DUSING_ROS )
 
-  find_package(catkin REQUIRED COMPONENTS behaviortree_cpp_v3)
+  find_package(catkin REQUIRED COMPONENTS behaviortree_cpp)
 
   message(STATUS "----------------------")
   message(STATUS "Compiling with CATKIN.")
@@ -47,7 +43,7 @@ elseif(catkin_FOUND OR CATKIN_DEVEL_PREFIX OR CATKIN_BUILD_BINARY_PACKAGE )
   catkin_package(
     INCLUDE_DIRS 
     LIBRARIES qt_node_editor
-    CATKIN_DEPENDS behaviortree_cpp_v3
+    CATKIN_DEPENDS behaviortree_cpp
     DEPENDS 
     )
 endif()
@@ -166,7 +162,7 @@ if(ament_cmake_FOUND)
 elseif( catkin_FOUND )
     SET(GROOT_DEPENDENCIES ${GROOT_DEPENDENCIES} ${catkin_LIBRARIES} )
 else()
-    SET(GROOT_DEPENDENCIES ${GROOT_DEPENDENCIES} behaviortree_cpp_v3 )
+    SET(GROOT_DEPENDENCIES ${GROOT_DEPENDENCIES} behaviortree_cpp )
 endif()
 
 if( ZMQ_FOUND )

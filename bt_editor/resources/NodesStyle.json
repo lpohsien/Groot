@@ -63,7 +63,7 @@
         "caption_color":  "#ff99bb"
     },
 
-    "SequenceStar": {
+    "SequenceWithMemory": {
         "icon": ":/icons/svg/sequence_star.svg",
         "caption_color":  "#ffaacc"
     },
