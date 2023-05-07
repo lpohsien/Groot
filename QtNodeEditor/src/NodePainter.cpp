@@ -12,7 +12,7 @@
 #include "NodeDataModel.hpp"
 #include "Node.hpp"
 #include "FlowScene.hpp"
-#include <QSvgRenderer>
+#include <QtSvg/QSvgRenderer>
 
 using QtNodes::NodePainter;
 using QtNodes::NodeGeometry;

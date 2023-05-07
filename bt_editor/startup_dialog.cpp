@@ -4,9 +4,9 @@
 #include <QTime>
 #include <QSettings>
 #include <QShortcut>
-#include <QSvgRenderer>
+#include <QtSvg/QSvgRenderer>
 #include <QImage>
-#include <QSvgWidget>
+#include <QtSvg/QSvgWidget>
 
 StartupDialog::StartupDialog(QWidget *parent) :
     QDialog(parent),

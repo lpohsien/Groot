@@ -12,7 +12,7 @@
 #include <vector>
 #include <map>
 #include <functional>
-#include <QSvgRenderer>
+#include <QtSvg/QSvgRenderer>
 #include "bt_editor/bt_editor_base.h"
 #include "bt_editor/utils.h"
 

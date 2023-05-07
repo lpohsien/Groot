@@ -12,7 +12,7 @@
 #include <QToolButton>
 #include <QWidgetAction>
 #include <QTreeWidgetItem>
-#include <QSvgWidget>
+#include <QtSvg/QSvgWidget>
 #include <QShortcut>
 #include <QTabBar>
 #include <QXmlStreamWriter>
